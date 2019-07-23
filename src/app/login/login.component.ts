@@ -1,4 +1,7 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
+
+import {auth} from 'firebase/app';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  constructor(public afAuth: AngularFireAuth) {
 
-  constructor() { }
-
-  ngOnInit() {
   }
 
+  ngOnInit() {}
+
+  login() {
+    this.afAuth.auth.signInWithRedirect(new auth.GoogleAuthProvider());
+  }
 }
