@@ -23,6 +23,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthService } from "./auth.service";
 import { AuthGuardService as AuthGuard } from "./auth-guard.service";
 import { UserService } from "./user.service";
+import { AdminAuthGuardService as AdminAuthGuard } from "./admin-auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { UserService } from "./user.service";
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [AuthService, AuthGuard, UserService],
+  providers: [AuthService, AuthGuard, AdminAuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
