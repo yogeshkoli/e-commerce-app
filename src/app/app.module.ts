@@ -22,6 +22,7 @@ import { LoginComponent } from "./login/login.component";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthService } from "./auth.service";
 import { AuthGuardService as AuthGuard } from "./auth-guard.service";
+import { UserService } from "./user.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { AuthGuardService as AuthGuard } from "./auth-guard.service";
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
