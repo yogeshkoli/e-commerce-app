@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
-import { AdminAuthGuardService } from './admin-auth-guard.service';
+import { AdminAuthGuardService as AdminAuthGuard } from './admin-auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,12 +29,12 @@ const routes: Routes = [
   {
     path: 'admin/products',
     component: AdminProductsComponent,
-    canActivate: [AuthGuard, AdminAuthGuardService]
+    canActivate: [AuthGuard, AdminAuthGuard]
   },
   {
     path: 'admin/orders',
     component: AdminOrdersComponent,
-    canActivate: [AuthGuard, AdminAuthGuardService]
+    canActivate: [AuthGuard, AdminAuthGuard]
   }
 ];
 
