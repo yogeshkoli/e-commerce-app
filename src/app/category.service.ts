@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 
@@ -10,6 +11,16 @@ export class CategoryService {
   getCategories() {
     return this.db
       .list('/categories', ref => ref.orderByChild('name'))
-      .valueChanges();
+      .snapshotChanges()
+      .pipe(
+        map(items => {
+          return items.map(a => {
+            const data = a.payload.val();
+            const key = a.payload.key;
+
+            return { key, data };
+          });
+        })
+      );
   }
 }
